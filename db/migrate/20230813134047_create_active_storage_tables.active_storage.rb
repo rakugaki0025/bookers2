@@ -1,6 +1,6 @@
 # This migration comes from active_storage (originally 20170806125915)
 class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
-      # bookers2_ActiveStorege_migrete
+      # bookers2_db_ActiveStorege_migrete
   
   def change
     # Use Active Record's configured type for primary and foreign keys

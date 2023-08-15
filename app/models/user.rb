@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-       # bookers2_models_user
+    
+       # bookers2_app_models_user
   
        # Include default devise modules. Others available are:
        # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
