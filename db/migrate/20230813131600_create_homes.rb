@@ -1,5 +1,5 @@
 class CreateHomes < ActiveRecord::Migration[6.1]
-        # bookers2_db_migrate table
+        # bookers2_db_migrate_homes_table
         
   def change
     create_table :homes do |t|
