@@ -5,8 +5,9 @@ class Book < ApplicationRecord
              # 
              
    belongs_to :user
-             # ?
-   
+             # ユーザーに:～属する 1:N の関係 [N]
+             # ただ一つのモデル?
+             
    def get_image
              # ActiveStorageに格納したno_image画像(D)を表示する
         

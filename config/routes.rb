@@ -9,7 +9,7 @@ Rails.application.routes.draw do # config_bookers2
   get 'homes/about' => "homes#about", as: 'about'
     # 取得 'アドレス' => "指定のコントローラー#アクション", as: "名前つきルート"
   
-  resources :books, only: [:new, :create, :index, :show, :destroy] do
+  resources :books, only: [:new, :show, :create, :index, :destroy] do
     # booksディレクトリ ルーティング自動生成 onlyで(限定生成)
  
   

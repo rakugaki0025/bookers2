@@ -8,10 +8,16 @@ class BooksController < ApplicationController
         # 左の箱に右を格納
         # インスタンス名はなんでもいい,空のオブジェクトもなんでもいい
       
+       
   end
   
   
-  def index
+  def show
+  
+  end
+  
+  
+  def index # 投稿の一覧
 
       @book_image = Book.new
         # # インスタンス変数 = モデル名 空オブジェクト 新規作成
@@ -27,7 +33,7 @@ class BooksController < ApplicationController
   end
   
   
-  def show
+  def edit
   
   end
   

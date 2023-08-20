@@ -7,32 +7,66 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
+    <script src="https://kit.fontawesome.com/5e22f18747.js" crossorigin="anonymous"></script>
+      <!-- FontAwesomeの記述 -->
+      
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <!-- 変更後 -->
+      <!-- stylesheet_link_tagは、app/assets 配下のファイルを cssが -->
+      <!-- stylesheet_pack_tagは、app/javascript 配下のファイルを参照する -->
+      
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <!--  -->
+      
   </head>
 
   <body>
     <header>
-    <% if user_signed_in? %>
+      <% if user_signed_in? %>
       
-      <li>
-        <%= link_to '投稿フォーム', new_book_path %>
-      </li>
+        <li>
+          <%= link_to '投稿フォーム', new_book_path %>
+        </li>
       
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-  </header>
-    <%= yield %>
+        <li>
+          <%= link_to 'User info', user_path(current_user.id) %>
+        </li>
+      
+        <li>
+          <%= link_to 'about', about_path %>
+        </li>
+        
+        <li>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            <!-- ログアウト -->
+        </li>
+      
+      <% else %>
+        
+        <li>
+          <%= link_to "Sign up", new_user_registration_path %>
+            <!-- 新規登録 -->
+        </li>
+      
+        <li>
+          <%= link_to "Log in", new_user_session_path %>
+            <!-- ログイン -->
+        </li>
+      
+      <% end %>
+    </header>
+      <%= yield %>
+      
+    <footer>
+      
+      <div class="container mt-5">
+        CopyRight Infratop.inc
+      </div>
+      
+    </footer>
+    
   </body>
+  
 </html>
+
