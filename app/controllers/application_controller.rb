@@ -9,9 +9,11 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for(resource)
           # ログイン後に遷移する場所
+          # ここでのresource はログイン,ログアウト時でしか使われない
           
       user_path(resource)
           # user/showに遷移したい
+          # ここでのresource はログイン,ログアウト時でしか使われない
           
   end
   

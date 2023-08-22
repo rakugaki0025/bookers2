@@ -30,11 +30,18 @@
         </li>
       
         <li>
-          <%= link_to 'User info', user_path(current_user.id) %>
+          <%= link_to 'Home', root_path %>
+            <!-- Home -->
         </li>
-      
+        
         <li>
-          <%= link_to 'about', about_path %>
+          <%= link_to 'Users', users_path %>
+            <!-- Users一覧へ -->
+        </li>
+        
+        <li>
+          <%= link_to 'Books', books_path %>
+            <!-- Users一覧へ -->
         </li>
         
         <li>
@@ -42,26 +49,44 @@
             <!-- ログアウト -->
         </li>
       
-      <% else %>
+        <% else %>
+      
+        <li>
+          <%= link_to 'Home', root_path %>
+            <!-- Home -->
+        </li>
+        
+        <li>
+          <%= link_to 'about', about_path %>
+            <!-- about -->
+        </li>
         
         <li>
           <%= link_to "Sign up", new_user_registration_path %>
             <!-- 新規登録 -->
         </li>
-      
+        
         <li>
           <%= link_to "Log in", new_user_session_path %>
             <!-- ログイン -->
         </li>
       
-      <% end %>
+        <% end %>
     </header>
+    
       <%= yield %>
+      
       
     <footer>
       
-      <div class="container mt-5">
-        CopyRight Infratop.inc
+      <div class="container mt-5"><br>
+        <div class="flex-row">
+          
+          <div class="d-flex justify-content-center">
+            <p>CopyRight Infratop.inc</p>
+            
+          </div>
+        </div>  
       </div>
       
     </footer>
