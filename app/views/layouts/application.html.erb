@@ -23,72 +23,111 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-      
-        <li>
-          <%= link_to '投稿フォーム', new_book_path %>
-        </li>
-      
-        <li>
-          <%= link_to 'Home', root_path %>
-            <!-- Home -->
-        </li>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          
+            <a class="navbar-brand" href="/">
+              <span>Bookers</span>
         
-        <li>
-          <%= link_to 'Users', users_path %>
-            <!-- Users一覧へ -->
-        </li>
-        
-        <li>
-          <%= link_to 'Books', books_path %>
-            <!-- Users一覧へ -->
-        </li>
-        
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-            <!-- ログアウト -->
-        </li>
-      
-        <% else %>
-      
-        <li>
-          <%= link_to 'Home', root_path %>
-            <!-- Home -->
-        </li>
-        
-        <li>
-          <%= link_to 'about', about_path %>
-            <!-- about -->
-        </li>
-        
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-            <!-- 新規登録 -->
-        </li>
-        
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-            <!-- ログイン -->
-        </li>
-      
-        <% end %>
+          <% if user_signed_in? %>
+            
+            <div class="row">
+              <%= link_to root_path do %>
+                <i class="fas fa-home">
+                  <!-- 本のアイコン -->
+                </i> Home
+              <% end %>
+            </div>
+              <!-- Home△ -->
+              
+            <div class="row">
+              <%= link_to users_path do %>
+                <i class="fas fa-users">
+                  <!--  -->
+                </i> Users
+              <% end %>
+            </div>
+              <!-- Users一覧へ〇 -->
+              
+            <div class="row">
+              <%= link_to books_path do %>
+                <i class="fas fa-book-open">
+                  <!--  -->
+                </i> Books
+              <% end %>
+            </div>
+              <!-- Books一覧へ〇 -->
+              
+            <div class="row">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt">
+                  <!-- 本のアイコン -->
+                </i> Log out
+              <% end %>
+            </div>
+              <!-- ログアウト〇 -->
+              
+          <% else %>
+          
+            <div class="row">
+              <%= link_to root_path do %>
+                <i class="fas fa-home">
+                  <!-- -->
+                </i> Home
+              <% end %>
+            </div>
+              <!-- Home△ -->
+              
+            <div class="row">
+              <%= link_to about_path do %>
+                <i class="fas fa-link">
+                  <!--  -->
+                </i> about
+              <% end %>
+            </div>
+              <!-- about〇 -->
+              
+            <div class="row">
+              <%= link_to new_user_registration_path do %>
+                <i class="fas fa-user-plus">
+                  <!--  -->
+                </i> Sign up
+              <% end %>
+            </div>
+              <!-- Sign up〇 -->
+              
+            <div class="row">
+              <%= link_to new_user_session_path do %>
+                <i class="fas fa-sign-in-alt">
+                  <!--  -->
+                </i> Log in
+              <% end %>
+            </div>
+              <!-- ログイン〇 -->
+              
+          <% end %>
+             
+            </a>
+          <button class="navbar-toggler" type="button"></button>
+            <!-- navbar濃いグレー -->
+        </div>
+      </nav>
     </header>
     
-      <%= yield %>
-      
+    <%= yield %>
       
     <footer>
-      
-      <div class="container mt-5"><br>
-        <div class="flex-row">
-          
-          <div class="d-flex justify-content-center">
-            <p>CopyRight Infratop.inc</p>
-            
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>
+              <font style="vertical-align: inherit;">
+                 CopyRight Infratop.inc
+              </font>
+            </p>
           </div>
         </div>  
       </div>
-      
     </footer>
     
   </body>

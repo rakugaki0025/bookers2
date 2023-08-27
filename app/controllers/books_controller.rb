@@ -1,17 +1,6 @@
 class BooksController < ApplicationController
       # bookers2_app_controllers
    
-  def new
-      
-      @book_image = Book.new
-        # インスタンス変数 = モデル名.rb 空オブジェクト 新規作成
-        # 左の箱に右を格納
-        # インスタンス名はなんでもいい,空のオブジェクトもなんでもいい
-      
-       
-  end
-  
-  
   def show
   
   end

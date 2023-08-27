@@ -1,11 +1,66 @@
-<h1>homes_top#ページ</h1> <!-- bookers2_homes_top -->
+<!-- homes_top_ページ -->
 
-<h1>welcometo_Bookers!!</h1>
+<html>
 
-In Bookers,
-<br>
+  <main>
+    <p id="notice"></p>
+    
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto auto col-11 col-sm10 col-lg-8 col-xl-6">
+          <h1>  
+              welcome to 
+            <i class="fas fa-book">
+              <!-- 本のアイコン -->
+            </i>
+            
+            <strong>
+              Bookers
+            </strong>
+            <!-- 改行せず連投できる -->
+              !
+          </h1>
+          
+          <p>
+            In
+              
+            <i class="fas fa-book" aria-hidden="true">
+              <!-- 本のアイコン -->
+            </i>
+            
+            <strong>Bookers</strong>
+              <!-- 改行せず連投できる -->
+                ,
+          </p>
+            
+          <p>
+            you can share and exchange your opinions , inpressions , and emotins
+          </p>
+            
+          <p>
+            about various books!
+          </p>
+            
+          <div class="btn-wrapper col-10 mx-auto">
+            
+            <div class="row">
+              <%= link_to "Log in", new_user_session_path,class:"btn btn-info btn-sm btn-block Log in" %>
+            </div>
+              <!-- ログイン -->
+            <br>
+              
+            <div class="row">
+              <%= link_to "Sign up", new_user_registration_path,class:"btn btn-success btn-sm btn-block sign_up" %>
+            </div>
+              <!-- サインイン -->
+          </div>
+            
+        </div>
+      </div>
+    </div>
+    
+  </main>
+  
+</html>
 
-you can share and exchange your opinions , inpressions , and emotins
-<br>
 
-about various books!

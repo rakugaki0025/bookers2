@@ -4,24 +4,24 @@
   
 <h1>User info</h1>
     
-  <%= form_with model: @book_image do |f| %>
-    <!-- form_with部分 -->
+    <%= form_with model: @book_image do |f| %>
+      <!-- form_with部分 -->
     
   <h4>Name</h4>
-    <!-- -->
+      <!-- -->
     <%= f.text_field :title %>
-    <!-- -->
+      <!-- -->
     
   <h4>image</h4>
     <%= f.file_field :image, accept: "image/*" %>
-    <!-- -->
+      <!-- -->
     
   <h4>introducion</h4>
     
     <%= f.text_area :body %><br>
-    <!-- -->
+      <!-- -->
     
-  <%= f.submit 'Update User' %>
+    <%= f.submit 'Update User' %>
   
 <% end %>
 
