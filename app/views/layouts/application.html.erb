@@ -24,92 +24,101 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+           <!-- navbar濃いグレー? -->
         <div class="container">
           
             <a class="navbar-brand" href="/">
               <span>Bookers</span>
-        
-          <% if user_signed_in? %>
-            
-            <div class="row">
-              <%= link_to root_path do %>
-                <i class="fas fa-home">
-                  <!-- 本のアイコン -->
-                </i> Home
-              <% end %>
-            </div>
-              <!-- Home△ -->
-              
-            <div class="row">
-              <%= link_to users_path do %>
-                <i class="fas fa-users">
-                  <!--  -->
-                </i> Users
-              <% end %>
-            </div>
-              <!-- Users一覧へ〇 -->
-              
-            <div class="row">
-              <%= link_to books_path do %>
-                <i class="fas fa-book-open">
-                  <!--  -->
-                </i> Books
-              <% end %>
-            </div>
-              <!-- Books一覧へ〇 -->
-              
-            <div class="row">
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt">
-                  <!-- 本のアイコン -->
-                </i> Log out
-              <% end %>
-            </div>
-              <!-- ログアウト〇 -->
-              
-          <% else %>
-          
-            <div class="row">
-              <%= link_to root_path do %>
-                <i class="fas fa-home">
-                  <!-- -->
-                </i> Home
-              <% end %>
-            </div>
-              <!-- Home△ -->
-              
-            <div class="row">
-              <%= link_to about_path do %>
-                <i class="fas fa-link">
-                  <!--  -->
-                </i> about
-              <% end %>
-            </div>
-              <!-- about〇 -->
-              
-            <div class="row">
-              <%= link_to new_user_registration_path do %>
-                <i class="fas fa-user-plus">
-                  <!--  -->
-                </i> Sign up
-              <% end %>
-            </div>
-              <!-- Sign up〇 -->
-              
-            <div class="row">
-              <%= link_to new_user_session_path do %>
-                <i class="fas fa-sign-in-alt">
-                  <!--  -->
-                </i> Log in
-              <% end %>
-            </div>
-              <!-- ログイン〇 -->
-              
-          <% end %>
-             
             </a>
-          <button class="navbar-toggler" type="button"></button>
-            <!-- navbar濃いグレー -->
+            
+            <button class="navbar-toggler" 
+            type="button" data-toggle="collapse" 
+            data-target="#navbarNavDropdown" 
+            aria-controls="navbarNavDropdown" 
+            aria-expanded="true" 
+            aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="navbar-collapse collapse show" id="navbarNavDropdown" style="">
+              
+              <ul class="navbar-nav ml-auto">
+                
+              <% if user_signed_in? %>
+                
+                <li>
+                  <%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                      <!-- ログイン中のユーザーのid : current_user.id -->
+                    Home
+                  <% end %>
+                </li>
+                  <!-- Home〇 -->
+                
+                <li>
+                  <%= link_to users_path,class: 'nav-link text-light' do %>
+                    <i class="fas fa-users" aria-hidden="true"></i>
+                      Users<!--  -->
+                  <% end %>
+                </li>
+                  <!-- Users一覧へ〇 -->
+                
+                <li>
+                  <%= link_to books_path,class: 'nav-link text-light' do %>
+                    <i class="fas fa-book-open" aria-hidden="true"></i>
+                      Books<!--  -->
+                  <% end %>
+                </li>
+                  <!-- Books一覧へ〇 -->
+                  
+                <li>
+                  <%= link_to destroy_user_session_path,class: 'nav-link text-light',method: :delete do %>
+                  
+                    <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                      Log out<!-- 本のアイコン -->
+                  <% end %>
+                </li>
+                  <!-- ログアウト〇 -->
+                
+              <% else %>
+                
+                <li>
+                  <%= link_to root_path,class: 'nav-link text-light' do %>
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                      Home<!-- -->
+                  <% end %>
+                </li>
+                  <!-- Home〇 -->
+                
+                <li>
+                  <%= link_to about_path,class: 'nav-link text-light' do %>
+                     <i class="fas fa-link" aria-hidden="true"></i>
+                       about<!--  -->
+                  <% end %>
+                </li>
+                  <!-- about〇 -->
+                
+                <li>
+                  <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
+                    <i class="fas fa-user-plus" aria-hidden="true"></i>
+                      Sign up<!--  -->
+                  <% end %>
+                </li>
+                  <!-- Sign up〇 -->
+                
+                <li>
+     　　 　　        <%= link_to new_user_session_path,class: 'nav-link text-light' do %>
+           　　　　     <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+          　　   　　     Log in<!--  -->
+            　　　　    </i>
+         　　　　     <% end %>
+        　　　　    </li>
+                  <!-- ログイン〇 -->
+                
+              <% end %>
+              
+              </ul>
+            </div>
         </div>
       </nav>
     </header>
