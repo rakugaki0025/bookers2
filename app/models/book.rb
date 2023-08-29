@@ -22,6 +22,6 @@ class Book < ApplicationRecord
     end
       image
              # 記述がないと目的を果たせない(画像)get_image依存
-  end
+   end
    
 end

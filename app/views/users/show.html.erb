@@ -3,42 +3,52 @@
 
 
 <!-- ユーザーの詳細 -->
-    <div>
-      <h3><%= @user.name %></h3>
-        <%= image_tag @user.get_profile_image(100,100) %>
-    </div>
 
-<!-- ユーザーの投稿一覧 -->
+      <div>
+        <h2>User info</h2>
+          
+          <%= image_tag @user.get_profile_image(100,100) %>
+            <!-- user詳細画像 -->
+          
+        <h6>
+          name
+            <%= @user.name %>
+              <!-- ログイン中のユーザー名 -->
+        </h6>
+        
+        <h6>
+          introduction
+        </h6>
+        
+      </div>
+        <!-- User 詳細 -->
+        
+      <div>
+        
+        <%= link_to edit_user_path,class:'nav-link col-3 btn-block btn-secondary' do %>
+          <i class="fas fa-user-cog" aria-hidden="true"></i>
+        <% end %>
+      </div>
+        <!-- User info -->
+    
+    <h4>New book</h4>
+    
+      <%= form_with model: @book, method: :post do |f| %>
+        <!-- 遷移先未設定 -->
+        
+        <h6>Title</h6>
+        
+          <%= f.text_field :title %>
+            <!-- -->
+        
+        <h6>Opinion</h6>
+        
+          <%= f.text_area :body %><br>
+            <!-- -->
+        
+          <%= f.submit 'Create Book' %>
+            <!-- -->
+        
+      <% end %>
 
-  <% @books.each do |book_image| %>
-    <div>
-  
-      <p>投稿ユーザー画像：<%= image_tag book_image.user.get_profile_image(100,100) %></p>
-  
-      <p>ショップ名：<%= book_image.shop_name %></p>
-  
-      <p>説明：<%= book_image.caption %></p>
-  
-      <p>ユーザーネーム：<%= book_image.user.name %></p>
-  
-    </div>
-  <% end %>
-  
-  
-  <h1>New book</h1>
-    
-  <%= form_with model: @book_image do |f| %>
-    <!-- 遷移先未設定 --
-    
-    <h4>Title</h4>
-    <!-- -->
-  <%= f.text_field :title %>
-  
-    <!-- -->
-    <h4>Opinion</h4>
-    
-  <%= f.text_area :body %><br>
-    <!-- -->
-  <%= f.submit 'Create Book' %>
-<% end %>
 

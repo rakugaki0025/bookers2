@@ -2,14 +2,17 @@ class BooksController < ApplicationController
       # bookers2_app_controllers
    
   def show
-  
+      
+      @book = Book.find(params[:id])
+      
+      
   end
   
   
   def index # 投稿の一覧
 
       @book_image = Book.new
-        # # インスタンス変数 = モデル名 空オブジェクト 新規作成
+        # インスタンス変数 = モデル名 空オブジェクト 新規作成
         # 左の箱に右を格納
         # インスタンス名はなんでもいい,空のオブジェクトもなんでもいい
         
@@ -40,7 +43,7 @@ class BooksController < ApplicationController
       @book_image.save
          # 記録保存が成功すれば投稿一覧へ
          
-      redirect_to books_path
+      redirect_to book_path(@book_image)
          # 遷移先 投稿一覧画面 books_about_path
   end 
   
@@ -58,7 +61,7 @@ class BooksController < ApplicationController
   def book_image_params
        # モデル名と一緒
        
-    params.require(:book).permit(:shop_name, :image, :caption)
+    params.require(:book).permit(:title, :body)
        # params.require(:モデル名).permit(:保存を許可するカラム指定)
        
   end

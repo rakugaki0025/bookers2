@@ -12,7 +12,7 @@ class User < ApplicationRecord
           # ログイン情報を保存
           # emailのフォーマットなどのバリデーション
    
-   has_many :book_images, dependent: :destroy
+   has_many :books, dependent: :destroy
           # たくさん持っている:モデルが 1:N になるよう関連付け:削除
    
    has_one_attached :profile_image

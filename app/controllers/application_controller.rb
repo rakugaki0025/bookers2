@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
           # メソッド
           
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
           # メソッド ユーザー登録(sign_up)の際に、
           # ユーザー名(name)のデータ操作を許可
           # ストリングパラメータと同様の機能
