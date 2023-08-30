@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-        # bookers2_app_controller_users
+              # bookers2_app_controller_users
+   
+   #before_action :is_matching_login_user, only: [:edit, :update]
+              # "edit"と"update"のアクションの実行前に、
+              # "is_matching_login_user"を実行させる記述
    
    
    def show
@@ -24,7 +28,7 @@ class UsersController < ApplicationController
    def index
        
        @books_lists = Book.all
-         # ログイン中の全ユーザーデータ取得?
+              # ログイン中の全ユーザーデータ取得?
          
    
    end
@@ -32,17 +36,59 @@ class UsersController < ApplicationController
    
    def edit
        
-       @book_image = Book.new
+       @user = User.find(params[:id])
+              # URLを参考に特定のidを持ったレコードを取得する
        
+       @book_image = Book.new
+              # 
       
    end
    
    
    def update
        
+       @user = User.find(params[:id])
+              # インスタンス変数 = ユーザー_find 探す:単数でどれか一つ
+              # レコードを一つ取得？
+          
+       @user.update(user_params)
+              # ユーザーのアップデート
+          
+        redirect_to user_path(@user.id)
+              # インスタンス変数 = ユーザー_find 探す:単数でどれか一つ  user_path(@user.id)
+              # 遷移先 '/books'? user_path(@user.id)
         
    end
    
    
+   private
+   
+   
+   def user_params
+              # 
+              
+      params.require(:user).permit(:name, :profile_image)
+              # 
+              
+   end
+    
+    
+   def is_matching_login_user
+              # ログインしているユーザーのidとURLに含まれるidを比較し、
+              # 一致しなければ投稿画像一覧ページに移動する処理
+          
+       user = User.find(params[:id])
+              # ローカル変数 = ユーザー_find 探す:単数でどれか一つ
+              # URLを参考に特定のidを持ったレコードを取得する
+          
+       unless user.id == current_user.id
+              # ログイン中,ユーザーid,取得
+          
+       redirect_to books_path
+              # 遷移先 Books#index 投稿画像一覧へ
+          
+       end
+   end
    
 end
+
