@@ -1,5 +1,5 @@
 <h1>Users_一覧_#index_top</h1>
-   <!-- bookers2views_users_index -->
+   <!-- bookers2_views_users_index -->
    
   <!-- ユーザーの投稿一覧 -->
   
@@ -9,9 +9,9 @@
   
       <p>投稿ユーザー画像：<%= image_tag book_image.user.get_profile_image(100,100) %></p>
   
-      <p>ショップ名：<%= book_image.shop_name %></p>
+      <p>ショップ名：<%= book_image.user.name %></p>
   
-      <p>説明：<%= book_image.caption %></p>
+      <p>説明：<%= book_image.user.introduction %></p>
   
       <p>ユーザーネーム：<%= book_image.user.name %></p>
   

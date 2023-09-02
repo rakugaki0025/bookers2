@@ -11,19 +11,25 @@ class BooksController < ApplicationController
   
   def index # 投稿の一覧
 
-      @book_image = Book.new
+      @book = Book.new
         # インスタンス変数 = モデル名 空オブジェクト 新規作成
         # 左の箱に右を格納
         # インスタンス名はなんでもいい,空のオブジェクトもなんでもいい
         
-      @books_images = Book.all
+      @books = Book.all
         # 
         
       # @book_images = Book.page(params[:page])
         # インスタンス変数 = モデル名.ページ送り機能
   
   end
-  
+#   def index
+#       @book = Book.new
+#         # インスタンス変数 = モデル名 空オブジェクト 新規作成
+#         # 左の箱に右を格納
+#         # インスタンス名はなんでもいい,空のオブジェクトもなんでもいい
+#       @books = Book.all 
+#   end
   
   def edit
   
@@ -44,7 +50,7 @@ class BooksController < ApplicationController
          # 記録保存が成功すれば投稿一覧へ
          
       redirect_to book_path(@book_image)
-         # 遷移先 投稿一覧画面 books_about_path
+         # 遷移先 投稿一覧画面 book_path
   end 
   
   

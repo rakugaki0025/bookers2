@@ -1,9 +1,49 @@
 <h1>books_show#top</h1>
   <!-- bookers2_views_books_show 投稿の詳細-->
+
+  
+<main>
+  
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-1">
+        
+        <h2>Book detail</h2>
+        
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <a href="/users/2">
+                  <img src="/users/2">
+                    <!--img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOENOQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--b5e881db9df8276dcbae10bd7a06107e4ad3cd9a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--4a929dbc7794f3c4610ba9ba5402762ad9cd1a14/default-image.jpg"-->
+                    
+                  <br>
+                </a>
+              </td>
+                <!-- User#showへ遷移？ -->
+              <td>
+                <a href= "" name="book[title]", id="book_title"></a>
+              </td>
+                <!-- books#showへ遷移？? -->
+              <td>
+                <a class="btn btn-sm btn-success edit_book_99731" href="/books/99731/edit">Edit</a>
+              </td>
+                <!-- Edit 遷移先途中 -->
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+  <!--<div>-->
+  <!--<%= @book.title %>-->
   
   
-  
-  <%= @book.title %>
-  
-  
-  <%= @book.body %>
+  <!--<%= @book.body %>-->
+  <!--</div>-->
+    </div>
+  </div>
+</main>
