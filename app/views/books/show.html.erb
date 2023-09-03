@@ -15,22 +15,15 @@
           <tbody>
             <tr>
               <td>
-                <a href="/users/2">
-                  <img src="/users/2">
-                    <!--img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOENOQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--b5e881db9df8276dcbae10bd7a06107e4ad3cd9a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--4a929dbc7794f3c4610ba9ba5402762ad9cd1a14/default-image.jpg"-->
-                    
-                  <br>
-                </a>
+                <%= image_tag @book.user.get_profile_image(100,100) %>
+                  <!-- image_tag Bookscontroller_show_@book.その中にあるuserデータを抜き出す.get_profile_image(100,100) -->
               </td>
-                <!-- User#showへ遷移？ -->
+                <!-- User#showへ遷移 -->
+                
               <td>
-                <a href= "" name="book[title]", id="book_title"></a>
+                <%= link_to @book.title, book_path(@book.id) %>
               </td>
                 <!-- books#showへ遷移？? -->
-              <td>
-                <a class="btn btn-sm btn-success edit_book_99731" href="/books/99731/edit">Edit</a>
-              </td>
-                <!-- Edit 遷移先途中 -->
               <td></td>
               <td></td>
             </tr>

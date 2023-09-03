@@ -16,12 +16,14 @@ class BooksController < ApplicationController
         # 左の箱に右を格納
         # インスタンス名はなんでもいい,空のオブジェクトもなんでもいい
         
-      @books = Book.all
-        # 
+      @books_lists = Book.all
+              # ログイン中の全ユーザーデータ取得?
         
       # @book_images = Book.page(params[:page])
         # インスタンス変数 = モデル名.ページ送り機能
-  
+      
+      # @books = Book.find(params[:id])
+      
   end
 #   def index
 #       @book = Book.new
@@ -67,7 +69,7 @@ class BooksController < ApplicationController
   def book_image_params
        # モデル名と一緒
        
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :image)
        # params.require(:モデル名).permit(:保存を許可するカラム指定)
        
   end

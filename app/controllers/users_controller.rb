@@ -68,8 +68,10 @@ class UsersController < ApplicationController
               # 
               
       params.require(:user).permit(:name, :profile_image, :introduction)
-              # 
-              
+              # require :モデル名
+              # permit  :userの書き込みを許可してあげる？
+              # params.require(:モデル名).
+              # permit(:保存を許可するカラム指定)
    end
     
     

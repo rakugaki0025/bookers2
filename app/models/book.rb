@@ -3,7 +3,10 @@ class Book < ApplicationRecord
    
    has_one_attached :image
              # 
-             
+   # has_one_attached :profile_image
+          # profile_imageという名前でActiveStorageで
+          # プロフィール画像を保存できるように設定
+          
    belongs_to :user
              # ユーザーに:～属する 1:N の関係 [N]
              # ただ一つのモデル?

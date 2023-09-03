@@ -18,48 +18,28 @@
               <th colspan="3"></th>
             </tr>
           </thead>
-          <tbody> </tbody>
+            <!-- title opinion -->
+            
+          <tbody>
+            <% @books_lists.each do |book| %>
+              <!-- Bookscontroller_index_@books_listsに投稿されたブックデータが入ってる -->
+              <!-- .each(繰り返し処理) -->
+              <!-- @books_listsを |book| に格納する -->
+              <tr align=”center”>
+                <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+                  <!-- image_tag(画像表示する時の表記) 上記で格納された|book|から.userデータを取り出す.get_profile_image(100,100) -->
+                <td><%= link_to book.title, book_path(book.id) %></td>
+                  <!-- userの詳細ページに遷移 -->
+                <td><%= book.body %></td>
+              </tr>
+　          <% end %>
+          </tbody>
+            <!-- books 投稿一覧_表示説明あり -->
         </table>
-        
-        <tbody>
-          <% @books.each do |book| %>
-        
-            <tr align=”center”>
-              <td><%= book.title %></td>
-              <td><%= book.body %></td>
-                <td><%= link_to "Show", book_path(book.id) %></td>
-                <td><%= link_to "Edit", edit_book_path(book.id) %></td>
-                <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-            </tr>
-          
-　        <% end %>   
-　      </tbody>
         
       </div>
     </div>
   </div>
 </html>   
-   
-   
-   <!--<!--% @books_images.each do |book_image| %>-->
-   <!--  　Controllerから渡された@books_images変数内から1つずつ取り出して,book_image変数へ格納します -->
-     
-  <!--<div>-->
-  <!--  <!--%= image_tag book_image.get_image %>-->
-  <!--       image_tagを使いbook_imageにActiveStorageで設定した imageを表示 -->
-        
-  <!--    <p>投稿ユーザー画像：<!--%= image_tag 'sample-author1.jpg' %></p>-->
-         
-        
-  <!--    <p>ショップ名：<!--%= book_image.shop_name %></p>-->
-  <!--       画像を用意 でダウンロードした画像 -->
-        
-  <!--    <p>説明：<!--%= book_image.caption %></p>-->
-  <!--       book_image変数の説明を表示 -->
-        
-  <!--    <p>ユーザーネーム：<!--%= book_image.user.name %></p>-->
-         
-        
-  <!--</div>-->
-  
-<!--% end %>
+
+
