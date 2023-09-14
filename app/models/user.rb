@@ -24,6 +24,7 @@ class User < ApplicationRecord
         # 特定の処理を名前で呼び出すことが可能
         # カラムを呼び出すようにこの処理（メソッド）を
         # 呼び出すことができる
+        
     unless profile_image.attached?
         #
        file_path = Rails.root.join('app/assets/images/sample-author1.jpg')

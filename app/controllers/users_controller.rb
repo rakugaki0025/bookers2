@@ -16,7 +16,7 @@ class UsersController < ApplicationController
        @user = User.find(params[:id])
               # インスタンス変数 = ユーザー_find 探す:単数でどれか一つ
               
-       @books = Book.all
+       @books = @user.books
        
        #@post_images = @user.post_images.page(params[:page])
               # メソッド 1:N の関係性 [1] (アソシエーション)
@@ -27,9 +27,16 @@ class UsersController < ApplicationController
    
    def index
        
-       @books_lists = Book.all
-              # ログイン中の全ユーザーデータ取得?
-         
+       @book = Book.new
+        # インスタンス変数 = モデル名 空オブジェクト 新規作成
+        # 左の箱に右を格納
+        # インスタンス名はなんでもいい,空のオブジェクトもなんでもいい
+       
+       
+       @user = current_user
+              # ログイン中の個人のユーザー
+              
+       @users = User.all
    
    end
    
@@ -91,6 +98,5 @@ class UsersController < ApplicationController
           
        end
    end
-   
 end
 
