@@ -57,14 +57,19 @@ class UsersController < ApplicationController
        @user = User.find(params[:id])
               # インスタンス変数 = ユーザー_find 探す:単数でどれか一つ
               # レコードを一つ取得？
-          
-       @user.update(user_params)
+       
+       if 
+           @user.update(user_params)
               # ユーザーのアップデート
           
-        redirect_to user_path(@user.id)
+           redirect_to user_path(@user.id)
               # インスタンス変数 = ユーザー_find 探す:単数でどれか一つ  user_path(@user.id)
               # 遷移先 '/books'? user_path(@user.id)
-        
+       else
+           
+           render :edit
+              # アクションを実行しない
+       end
    end
    
    
@@ -98,5 +103,6 @@ class UsersController < ApplicationController
           
        end
    end
+   
 end
 

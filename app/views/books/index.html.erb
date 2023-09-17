@@ -3,6 +3,24 @@
 
 
 <html>
+  
+   <!-- エラーメッセージ表示 -->
+  <div>
+    <%= flash[:notice] %>
+  </div>
+  
+   <% if @book_image.errors.any? %>
+    <%= @book_image.errors.count %>errors prohibited this obj from being saved:
+      <ul>
+        <% @book_image.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  
+  
   <p id="notice"></p>
   
   <div class="container px-5 px-sm-0">

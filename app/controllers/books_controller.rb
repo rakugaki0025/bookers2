@@ -41,7 +41,8 @@ class BooksController < ApplicationController
   
   
   def create
-         #投稿データの保存
+         # New Book
+         # 投稿データの保存
          
       @book_image = Book.new(book_image_params)
          # shop_name, caption,image 格納予定
@@ -50,12 +51,23 @@ class BooksController < ApplicationController
          # ユーザーを ID で特定するために使用するカラム
          # current_user.id(今ログインしているユーザーの ID)
          
-      @book_image.save
-         # 記録保存が成功すれば投稿一覧へ
+      if 
+         @book_image.save
+           # 記録保存が成功すれば投稿一覧へ
+         flash[:notice] = "You have created book successfully."
          
-      redirect_to book_path(@book_image)
-         # 遷移先 投稿一覧画面 book_path
-  end 
+         redirect_to book_path(@book_image)
+           # 遷移先 投稿一覧画面 book_path
+         
+      else 
+           # エラーメッセージ
+         flash[:notice] = "errors prohibited this obj from being saved:"
+           
+           # エラー時の遷移先
+         render :show
+         
+      end
+  end
   
   
   def destroy
@@ -71,21 +83,24 @@ class BooksController < ApplicationController
   
   
   def update
-      
+           # Editing book
       @book = Book.find(params[:id])
-                # updateアクション
+           # データ（レコード）を1件取得
+           
+      @book.user_id = current_user.id
                 
-      if @book.update(book_params)
-           # saveメソッド
-         flash[:notice] = "Book was successfully updated."
-           # 3. フラッシュメッセージを定義し、詳細画面へリダイレクト
-         redirect_to book_path(@book.id)
-           # アクションを実行する
+      if 
+          @book.update(book_image_params)
+            # saveメソッド
+           
+          flash[:notice] = "Book was successfully updated."
+            # 3. フラッシュメッセージを定義し、詳細画面へリダイレクト
+          redirect_to book_path(@book.id)
+            # アクションを実行する
            
       else
-         @books = Book.all
-         render :edit
-           # アクションを実行しない
+           render :show
+             # アクションを実行しない
       end
   end
   
@@ -102,6 +117,5 @@ class BooksController < ApplicationController
        # params.require(:モデル名).permit(:保存を許可するカラム指定)
        
   end
-  
 end
 

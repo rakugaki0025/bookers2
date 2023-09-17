@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
           # 全てのコントローラに対する処理を行える権限を持つ
           # bookers2
   
+  before_action :authenticate_user!, except: [:top]
+          # ログイン認証が済んでない,ログイン画面にリダイレクト
        
   before_action :configure_permitted_parameters, if: :devise_controller?
           # ユーザー,ログイン　の前にメソッド実装

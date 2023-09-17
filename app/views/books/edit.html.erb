@@ -1,6 +1,21 @@
 <h1>book#edit_top</h1> 
   <!-- bookers2_views_books_edit -->
 
+<div>
+    <%= flash[:notice] %>
+  </div>
+  
+   <% if @book_image.errors.any? %>
+    <%= @book_image.errors.count %>errors prohibited this obj from being saved:
+      <ul>
+        <% @book_image.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
 <main>
   <p id="notice"></p>
   
