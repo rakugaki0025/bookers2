@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   def show
       
       @book = Book.find(params[:id])
-        #
+        # データ（レコード）を1件取得
         
       @user = @book.user
         # ログイン中の個人を特定する
@@ -32,7 +32,7 @@ class BooksController < ApplicationController
   def edit
       
       @book = Book.find(params[:id])
-        #
+        # データ（レコード）を1件取得
         
       @user = @book.user
         # ログイン中の個人を特定する
@@ -44,33 +44,44 @@ class BooksController < ApplicationController
          # New Book
          # 投稿データの保存
          
-      @book_image = Book.new(book_image_params)
-         # shop_name, caption,image 格納予定
+      @book = Book.new(book_image_params)
+         # title, body, image 格納予定
          
-      @book_image.user_id = current_user.id
+      @book.user_id = current_user.id
          # ユーザーを ID で特定するために使用するカラム
          # current_user.id(今ログインしているユーザーの ID)
          
-      if 
-         @book_image.save
+      if @book.save
            # 記録保存が成功すれば投稿一覧へ
+           
          flash[:notice] = "You have created book successfully."
-         
-         redirect_to book_path(@book_image)
+           # flash[:notice] は 投稿が成功した時だけ
+           # エラーメッセージでは使わない
+           
+         redirect_to book_path(@book.id)
            # 遷移先 投稿一覧画面 book_path
          
-      else 
-           # エラーメッセージ
-         flash[:notice] = "errors prohibited this obj from being saved:"
+      else
+         
+         ##@book = Book.new
+           ## ここにいれてしまうとエラーメッセージが表示されなくなる@user = current_user
+           ## 元々の空箱をうわがきしてしまう
            
+         @user = current_user
+          # ログイン中の個人を特定する
+         
+         @books_lists = Book.all
+          # 本のデータ
+         
            # エラー時の遷移先
-         render :show
+         render :index
          
       end
   end
   
   
   def destroy
+      
       @book = Book.find(params[:id])
         # データ（レコード）を1件取得
         
@@ -84,22 +95,24 @@ class BooksController < ApplicationController
   
   def update
            # Editing book
+      
       @book = Book.find(params[:id])
            # データ（レコード）を1件取得
            
-      @book.user_id = current_user.id
+      #@book.user_id = current_user.id
                 
-      if 
-          @book.update(book_image_params)
+      if  @book.update(book_image_params)
             # saveメソッド
            
-          flash[:notice] = "Book was successfully updated."
-            # 3. フラッシュメッセージを定義し、詳細画面へリダイレクト
+          flash[:notice] = "You have updated book successfully."
+            # flash[:notice] は 投稿が成功した時だけ
+            # エラーメッセージでは使わない
+            
           redirect_to book_path(@book.id)
             # アクションを実行する
            
       else
-           render :show
+           render :edit
              # アクションを実行しない
       end
   end

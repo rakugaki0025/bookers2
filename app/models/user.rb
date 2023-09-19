@@ -21,7 +21,7 @@ class User < ApplicationRecord
    
    validates :name,
     length: { minimum: 2, maximum: 20 }
-    
+          # バリデーションの設定 :
     
    validates :introduction,
     length: { maximum: 50 }

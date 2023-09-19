@@ -1,4 +1,4 @@
-<!-- booksers2_users_部分テンプレート -->
+<!-- booksers2_users_部分テンプレート_完了-->
 
 <!-- ここから -->
 
@@ -31,9 +31,11 @@
             <!-- name introduction -->
             
           <div class="row">
+            <!--% if @user == current_user %-->
             <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
               <i class="fas fa-user-cog" aria-hidden="true"></i>
             <% end %>
+            <!--% end %-->
           </div>
             <!-- User info_遷移先がしっかり更新先になった_チェックボックス -->
             

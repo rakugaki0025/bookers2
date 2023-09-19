@@ -48,7 +48,7 @@ class UsersController < ApplicationController
        
        @book_image = Book.new
               # 
-      
+       
    end
    
    
@@ -58,10 +58,13 @@ class UsersController < ApplicationController
               # インスタンス変数 = ユーザー_find 探す:単数でどれか一つ
               # レコードを一つ取得？
        
-       if 
-           @user.update(user_params)
+       if  @user.update(user_params)
               # ユーザーのアップデート
-          
+           
+           flash[:notice] = "You have updated user successfully."
+              # flash[:notice] は 投稿が成功した時だけ
+              # エラーメッセージでは使わない
+           
            redirect_to user_path(@user.id)
               # インスタンス変数 = ユーザー_find 探す:単数でどれか一つ  user_path(@user.id)
               # 遷移先 '/books'? user_path(@user.id)

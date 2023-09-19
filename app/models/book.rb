@@ -4,11 +4,14 @@ class Book < ApplicationRecord
    has_one_attached :image
              # 
    
-   validates :created_at, presence: true
-             # バリデーションの設定 :
-   validates :updated_at, presence: true
-             # バリデーションの設定 :
-          
+   validates :title, presence: true
+             # バリデーションの設定
+             
+   validates :body, presence: true,
+     length: { maximum: 200 }
+             # バリデーションの設定
+             
+             
    belongs_to :user
              # ユーザーに:～属する 1:N の関係 [N]
              # ただ一つのモデル?

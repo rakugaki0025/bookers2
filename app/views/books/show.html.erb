@@ -1,7 +1,6 @@
-<h1>books_show#top</h1>
-  <!-- bookers2_views_books_show 投稿の詳細-->
-
-
+  <!-- books_show_bookers2_views_books_show 投稿の詳細-->
+  
+  
 <main>
   <p id="notice"></p>
   
@@ -17,6 +16,7 @@
       <div class="col-md-8 offset-md-1">
         
         <h2>Book detail</h2>
+        
         
         <table class="table table-hover table-inverse">
           <tbody>
@@ -37,11 +37,15 @@
               </td>
                 <!-- Edit_Link -->
               <td>
-                <%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-success" %>
+                <!--% if @user == current_user %-->
+                  <%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-success" %>
+                <!--% end %-->
               </td>
                 <!--  -->
               <td>
-                <%= link_to "Destroy", book_path(@book.id), class:"btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                <!--% if @user == current_user %-->
+                  <%= link_to "Destroy", book_path(@book.id), class:"btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                <!--% end %-->
               </td>
               
             </tr>

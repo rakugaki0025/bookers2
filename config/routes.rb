@@ -13,7 +13,7 @@ Rails.application.routes.draw do # config_bookers2
     # booksディレクトリ ルーティング自動生成 onlyで(限定生成)
     
     
-  resources :users, only: [:show, :index, :create, :edit, :update]
+  resources :users, only: [:show, :index, :edit, :update]
     # users ルーティング自動生成 onlyで(限定生成)
    
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
