@@ -1,68 +1,45 @@
-<h2>Log in</h2> <!-- bookers2_views_devise_sessions ディレクトリ -->
+<!-- bookers2_views_devise_sessions ディレクトリ -->
   
   <div class="container">
     <div class="row no-gutters">
       <div class="form-body p-1">
+        <h2>Log in</h2>
         
-          <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+        <%= form_with model: @user, url: user_session_path, local: true do |f| %>
           <!--%= form_with model: @user, url: user_session_path do |f| %-->
             <!-- 変更前 -->
           
-          <%= render "devise/shared/error_messages", resource: resource %>
-        
-            <div class="input-group mb-3">
-            
-              <!--div class="input-group-prepend">
-                <!-- 人のアイコン --
-                <span class="input-group-text" aria-hidden="true"><i class="fas fa-user"></i></span>
-              </div>
-                <!-- name_icon_ヒント -->
-               
-              <!--%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "ユーザー名" %>-->
-                <!-- text_sample_表示_ヒント -->
-              
-            <div class="field"> 
+        <%= render "devise/shared/error_messages", resource: resource %>
+            <!-- Log_in_name_チェックボックス -->
+          <div class="input-group mb-3">
+            <div class="field">
+                <!--  -->
               <%= f.label :name %><br>
-                <!--  -->
-              <%= f.text_field :name, autofocus: true %>
                 <!-- 編集 -->
-      
+              <%= f.text_field :name, autofocus: true %>
             </div>
-            
           </div>
-              <!-- Log_in_name -->
-          
-            <div class="input-group mb-3">
-              <!--div class="input-group-prepend">
-                <span class="input-group-text" aria-hidden="true"><i class="fas fa-lock"></i></span>
-              </div>
-                <!-- pass_icon_ヒント -->
-            </div>  
-            
-            <div class="field"> 
-              <%= f.label :password %><br>
-                <!--  -->
-              
-              <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"" %><br>
-                <!-- text_sample_表示_ヒント -->
-              
-              <%= check_box_tag :remember, params[:remember], true %>
-              <%= label_tag :remember_me %>
-                <!-- Remenber me チェックボックスタグ -->
-            
-            </div>
-              <!-- Log_in_pass -->
-              
-            <div class="col-5"  >
-              <%= f.submit "Log in", class:"btn-block btn-primary" %>
-              <!-- Log_in_ボタン f.submit -->
-            </div>  
-          <% end %>
-            <br>
-          <%= render "devise/shared/links" %><br>
-            <!-- Forgot your password? テキストがdeviseにより？生成された？ -->
-          
+            <!-- Log_in_pass -->
+          <div class="field">
+              <!--  -->
+            <%= f.label :password %>
+              <!-- text_sample_表示_ヒント -->
+            <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"" %>
           </div>
+            <!-- Remenber me チェックボックスタグ -->
+          <div class="field">
+            <%= check_box_tag :remember, params[:remember], true %>
+              
+            <%= label_tag :remember_me %>
+          </div>
+            <!-- Log_in_ボタン -->
+          <div class="col-5">
+            <%= f.submit "Log in", class:"btn btn-sm btn-primary" %>
+          </div>  
+        <% end %>
+        
+        <%= render "devise/shared/links" %>
+          <!-- Forgot your password? テキストがdeviseにより？生成された？ -->
           
       </div>
     </div>

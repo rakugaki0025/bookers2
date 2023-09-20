@@ -1,6 +1,5 @@
-  <!-- book#edit_top_bookers2_views_books_edit_完了 -->
-  
-  
+<!-- book#edit_top_bookers2_views_books_edit_完了 -->
+
 <main>
   <p id="notice"></p>
   
@@ -8,23 +7,17 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h1>Editing Book</h1>
-        
-        <!-- エラーメッセージ -->
-  
+          <!-- エラーメッセージ -->
         <% if @book.errors.any? %>
             <!-- エラーカウント -->
-          <h2>
-            <%= @book.errors.count %>
-            errors prohibited this obj from being saved:
-          </h2>
-            
-          <ul>
-            <% @book.errors.full_messages.each do |message| %>
-              <li>
-                <%= message %>
-              </li>
-            <% end %>
-          </ul>
+          <h2><%= @book.errors.count %>errors prohibited this obj from being saved:</h2>
+            <ul>
+              <% @book.errors.full_messages.each do |message| %>
+                <li>
+                  <%= message %>
+                </li>
+              <% end %>
+            </ul>
         <% end %>
         
         <%= form_with model: @book do |f| %>
@@ -35,7 +28,6 @@
             </label>
               <%= f.text_field :title, class:"form-control" %>
           </div>
-                
             <!-- Opinion -->
           <div class="form-group">
             <label for="user_body">
@@ -43,24 +35,20 @@
             </label>
               <%= f.text_area :body, class:"form-control", rows:"3" %>
           </div>
-                
             <!-- Update Book -->
           <div class="form-group">
             <%= f.submit 'Update Book', class:"btn btn-lg btn-success btn- mt-4" %>
           </div>
-                
+          
             <!-- Show -->
           <td>
-            <%= link_to "Show", book_path(@book.id) %>
-          </td>
-          
-          |
-          
+              <%= link_to "Show", book_path(@book.id) %>
+            </td>
+            |
             <!-- Back -->
           <td>
-            <%= link_to "Back", books_path(@book.id) %>
-          </td>
-                
+              <%= link_to "Back", books_path(@book.id) %>
+            </td>
         <% end %>
         
       </div>

@@ -7,13 +7,13 @@
     <%= flash[:notice] %>
   </div>
   
-  
   <main>
     <p id="notice"></p>
     
     <div class="container">
       <div class="row">
         <div class="mx-auto auto col-11 col-sm10 col-lg-8 col-xl-6">
+            <!-- welcom_to_Bookers -->
           <h1>  
               welcome to 
             <i class="fas fa-book">
@@ -26,7 +26,7 @@
             <!-- 改行せず連投できる -->
               !
           </h1>
-          
+            <!-- In_Bookers -->
           <p>
             In
               
@@ -38,7 +38,7 @@
               <!-- 改行せず連投できる -->
                 ,
           </p>
-            
+            <!-- text -->
           <p>
             you can share and exchange your opinions , inpressions , and emotins
           </p>
@@ -46,19 +46,17 @@
           <p>
             about various books!
           </p>
-            <!-- text -->
+          
           <div class="btn-wrapper col-10 mx-auto">
-            
+              <!-- ログイン -->
             <div class="row">
               <%= link_to "Log in", new_user_session_path,class:"btn btn-info btn-sm btn-block Log in" %>
-            </div>
-              <!-- ログイン -->
-            <br>
-              
+            </div><br>
+              <!-- サインイン -->
             <div class="row">
               <%= link_to "Sign up", new_user_registration_path,class:"btn btn-success btn-sm btn-block sign_up" %>
             </div>
-              <!-- サインイン -->
+              
           </div>
             
         </div>
