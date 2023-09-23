@@ -31,13 +31,18 @@ class BooksController < ApplicationController
   
   def edit
       
-      is_matching_login_user
+      #is_matching_login_user
       
       @book = Book.find(params[:id])
         # データ（レコード）を1件取得
         
-      @user = @book.user
-        # ログイン中の個人を特定する
+      if @book.user == current_user
+         
+      else
+          
+         redirect_to books_path
+          
+      end
   
   end
   
