@@ -31,6 +31,8 @@ class BooksController < ApplicationController
   
   def edit
       
+      is_matching_login_user
+      
       @book = Book.find(params[:id])
         # データ（レコード）を1件取得
         
@@ -114,6 +116,25 @@ class BooksController < ApplicationController
       else
            render :edit
              # アクションを実行しない
+      end
+  end
+  
+  
+  def is_matching_login_user
+              # ログインしているユーザーのidとURLに含まれるidを比較し、
+              # 一致しなければ投稿画像一覧ページに移動する処理
+              # 各コントローラーに記述しないとエラーの原因にもなる
+              
+      book = Book.new
+              # ローカル変数 = ユーザー_find 探す:単数でどれか一つ
+              # URLを参考に特定のidを持ったレコードを取得する
+          
+      unless book.id == current_user.id
+              # ログイン中,ユーザーid,取得
+          
+      redirect_to books_path
+              # 遷移先 Books#index 投稿画像一覧へ
+          
       end
   end
   

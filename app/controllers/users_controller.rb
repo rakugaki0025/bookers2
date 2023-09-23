@@ -43,6 +43,8 @@ class UsersController < ApplicationController
    
    def edit
        
+       is_matching_login_user
+       
        @user = User.find(params[:id])
               # URLを参考に特定のidを持ったレコードを取得する
        
@@ -53,6 +55,8 @@ class UsersController < ApplicationController
    
    
    def update
+       
+       is_matching_login_user
        
        @user = User.find(params[:id])
               # インスタンス変数 = ユーザー_find 探す:単数でどれか一つ
