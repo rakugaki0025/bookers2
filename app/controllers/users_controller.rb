@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
               # bookers2_app_controller_users
    
-   #before_action :is_matching_login_user, only: [:edit, :update]
+   before_action :is_matching_login_user, only: [:edit, :update]
               # "edit"と"update"のアクションの実行前に、
               # "is_matching_login_user"を実行させる記述
    
@@ -105,7 +105,7 @@ class UsersController < ApplicationController
        unless user.id == current_user.id
               # ログイン中,ユーザーid,取得
           
-       redirect_to books_path
+       redirect_to user_path(current_user)
               # 遷移先 Books#index 投稿画像一覧へ
           
        end

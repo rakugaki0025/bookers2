@@ -20,8 +20,8 @@ class User < ApplicationRecord
           # プロフィール画像を保存できるように設定
    
    validates :name,
-    length: { minimum: 2, maximum: 20 }
-          # バリデーションの設定 :
+    length: { minimum: 2, maximum: 20 }, uniqueness: true
+          # バリデーションの設定 :　name:一意性を当てえる
     
    validates :introduction,
     length: { maximum: 50 }

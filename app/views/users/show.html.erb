@@ -33,7 +33,7 @@
                 <!-- .each(繰り返し処理) -->
                 <!-- @books_listsを |book| に格納する -->
               <tr align=”center”>
-                <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+                <td><%= link_to image_tag book.user.get_profile_image(100,100) %></td>
                   <!-- image_tag(画像表示する時の表記) 上記で格納された|book|から.userデータを取り出す.get_profile_image(100,100) -->
                 <td><%= link_to book.title, book_path(book.id) %></td>
                   <!-- userの詳細ページに遷移 -->

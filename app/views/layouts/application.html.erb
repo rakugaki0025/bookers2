@@ -40,69 +40,71 @@
             </button>
             
             <div class="navbar-collapse collapse show" id="navbarNavDropdown" style="">
-              
+                <!-- ログイン_ログアウト -->
               <ul class="navbar-nav ml-auto">
-                <!-- ログアウト_状態 -->
+                  <!-- ログイン_状態 -->
                 <% if user_signed_in? %>
                     <!-- Home -->
                   <li>
-                  <%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
-                    <i class="fas fa-home" aria-hidden="true"></i>
-                      <!-- ログイン中のユーザーのid : current_user.id -->
-                    Home
-                  <% end %>
-                </li>
+                    <%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
+                      <i class="fas fa-home" aria-hidden="true"></i>
+                        <!-- ログイン中のユーザーのid : current_user.id -->
+                      Home
+                    <% end %>
+                  </li>
                     <!-- Users一覧へ -->
                   <li>
-                  <%= link_to users_path,class: 'nav-link text-light' do %>
-                    <i class="fas fa-users" aria-hidden="true"></i>
-                      Users<!--  -->
-                  <% end %>
-                </li>
+                    <%= link_to users_path,class: 'nav-link text-light' do %>
+                      <i class="fas fa-users" aria-hidden="true"></i>
+                        Users<!--  -->
+                    <% end %>
+                  </li>
                     <!-- Books一覧へ -->
                   <li>
-                  <%= link_to books_path,class: 'nav-link text-light' do %>
-                    <i class="fas fa-book-open" aria-hidden="true"></i>
-                      Books<!--  -->
-                  <% end %>
-                </li>
+                    <%= link_to books_path,class: 'nav-link text-light' do %>
+                      <i class="fas fa-book-open" aria-hidden="true"></i>
+                        Books<!--  -->
+                    <% end %>
+                  </li>
                     <!-- ログアウト -->
                   <li>
-                  <%= link_to destroy_user_session_path,class: 'nav-link text-light',method: :delete do %>
+                    <%= link_to destroy_user_session_path,class: 'nav-link text-light',method: :delete do %>
+                      <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                        Log out<!-- 本のアイコン -->
+                    <% end %>
+                  </li>
                   
-                    <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
-                      Log out<!-- 本のアイコン -->
-                  <% end %>
-                </li>
+                  <!-- ログアウト_状態 -->
                 <% else %>
                     <!-- Home〇 -->
                   <li>
-                  <%= link_to root_path,class: 'nav-link text-light' do %>
-                    <i class="fas fa-home" aria-hidden="true"></i>
-                      Home<!-- -->
-                  <% end %>
-                </li>
-                    <!-- about〇 -->
+                    <%= link_to root_path,class: 'nav-link text-light' do %>
+                      <i class="fas fa-home" aria-hidden="true"></i>
+                        Home<!-- -->
+                    <% end %>
+                  </li>
+                    <!-- About〇 -->
                   <li>
-                  <%= link_to about_path,class: 'nav-link text-light' do %>
-                     <i class="fas fa-link" aria-hidden="true"></i>
-                       about<!--  -->
-                  <% end %>
-                </li>
+                    <%= link_to about_path,class: 'nav-link text-light' do %>
+                      <i class="fas fa-link" aria-hidden="true"></i>
+                        About<!--  -->
+                    <% end %>
+                  </li>
                     <!-- Sign up〇 -->
                   <li>
-                  <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
-                    <i class="fas fa-user-plus" aria-hidden="true"></i>
-                      Sign up<!--  -->
-                  <% end %>
-                </li>
+                    <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
+                      <i class="fas fa-user-plus" aria-hidden="true"></i>
+                        Sign up<!--  -->
+                    <% end %>
+                  </li>
                     <!-- ログイン -->
                   <li>
-                  <%= link_to new_user_session_path,class: 'nav-link text-light' do %>
-                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
-                      Log in<!-- -->
-                  <% end %>
-                </li>
+                    <%= link_to new_user_session_path,class: 'nav-link text-light' do %>
+                      <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+                        Log in<!-- -->
+                    <% end %>
+                  </li>
+                  
                 <% end %>
               </ul>
             </div>
